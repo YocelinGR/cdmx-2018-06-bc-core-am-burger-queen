@@ -1,0 +1,34 @@
+{
+  "name": "burger-queen",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "npm": "6.2.0",
+    "node": "8.11.3"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts": "2.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "description": "This is an app for Burger Queen restaurant for improve their orders system",
+  "main": "index.js",
+  "repository": "https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen.git",
+  "author": "YocelinGRomero <garcia_romero.y@hotmail.com>",
+  "license": "MIT"
+}
