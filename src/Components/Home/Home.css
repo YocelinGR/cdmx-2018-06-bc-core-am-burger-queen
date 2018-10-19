@@ -1,1 +1,34 @@
-/*'Dancing Script', cursive;*/
+
+.LogInStyle h1 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: #7DCFF1; 
+    font-size: 5rem;
+}
+.LogInStyle h3 {
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    color: #F8D554;
+    font-size: 4rem;
+}
+.LogInStyle p {
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    color: #9B7348;
+    font-size: 1.2rem;
+}
+.LogInStyle img {
+    margin: auto;
+    margin-left: 38%;
+   
+}
+.LogInStyle {
+    background-color: ;
+    background-position: center center;
+    background: radial-gradient(ellipse, #EDF5F9, #7DCFF1);
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+}
+
+

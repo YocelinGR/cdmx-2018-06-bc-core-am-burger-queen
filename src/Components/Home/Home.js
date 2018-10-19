@@ -32,6 +32,10 @@ class Home extends Component{
   render() {
     return(
       <div className= "LogInStyle">
+        <h1>Burguer</h1>
+        <h3><strong>Queen</strong></h3>
+        <p>Para los amantes de lo bueno</p>
+        <img alt ="An hamburguer for the main view" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/hamb-burgue-circle.png?raw=true" />
         {this.state.isSignedIn ? (
         <div>
           <div className = "user-loged">
