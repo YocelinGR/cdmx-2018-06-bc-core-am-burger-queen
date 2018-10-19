@@ -9,14 +9,17 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.2.2",
-    "eslint": "^5.7.0",
-    "eslint-plugin-react": "^7.11.1",
+    "firebase": "^5.5.5",
+    "firebase-functions": "^2.0.5",
     "firebase-tools": "^5.1.1",
     "gh-pages": "^2.0.1",
     "lighthouse": "^3.2.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-firebaseui": "^3.1.2",
+    "react-materialize": "^2.4.6",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
     "redux": "^4.0.1"
   },
@@ -26,8 +29,7 @@
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js src/**/*.jsx"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
