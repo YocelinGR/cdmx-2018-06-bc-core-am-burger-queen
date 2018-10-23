@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter} from 'react-router-dom';
-import {
-  Button, Row, Col,
-  Input,
-} from 'react-materialize';
-import { Config } from '../../config'; 
+
+import { Config } from '../../config'; // eslint-disable-next-line
 import './Home.css'
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import NavBar from '../NavBar/NavBar';
 
 class Home extends Component{
   state = { isSignedIn: false}
@@ -32,23 +29,26 @@ class Home extends Component{
   render() {
     return(
       <div className= "LogInStyle">
-        <h1>Burguer</h1>
-        <h3><strong>Queen</strong></h3>
-        <p>Para los amantes de lo bueno</p>
-        <img alt ="An hamburguer for the main view" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/hamb-burgue-circle.png?raw=true" />
+        <NavBar />
         {this.state.isSignedIn ? (
         <div>
           <div className = "user-loged">
-            <h3>Hola, hoy serás una gran día de trabajo</h3>
+            <h3>Hoy será una gran día de trabajo</h3>
             <h4>Hola: {firebase.auth().currentUser.displayName}</h4>
             {firebase.auth().currentUser.photoURL===null ?
-            (<img alt = "foto de usuario" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/waitress-avatar.jpg?raw=true" />) :
-            (<img alt = "foto de usuario" src= {firebase.auth().currentUser.photoURL} />)}
-            <button className = "btn btn-floating pink lighten-1" onClick={() => firebase.auth().signOut()}>Salir</button>
+            (<img className = "photo-user" alt = "foto de usuario" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/waitress-avatar.jpg?raw=true" />) :
+            (<img className = "photo-user" alt = "foto de usuario" src= {firebase.auth().currentUser.photoURL} />)}
+            <button className = "btn btn-floating lighten-1 btn-user" onClick={() => firebase.auth().signOut()}>Salir</button>
           </div>
         </div>
         ) : (
-          <StyledFirebaseAuth uiConfig= {this.uiConfig} firebaseAuth = {firebase.auth()} />
+        <div>
+          <h1>Burguer</h1>
+          <h2><strong>Queen</strong></h2>
+          <p>Para los amantes de lo bueno</p>
+          <img alt ="An hamburguer for the main view" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/hamb-burgue-circle.png?raw=true" />
+            <StyledFirebaseAuth uiConfig= {this.uiConfig} firebaseAuth = {firebase.auth()} />
+        </div>
         )}
       </div>
     )

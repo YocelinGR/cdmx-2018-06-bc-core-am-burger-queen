@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import {
+  BrowserRouter, Switch, Route, 
+} from 'react-router-dom';
+
 import './App.css';
+
+import Home from '../Home/Home.js';
+import WaitressView from '../WaitressView/WaitressView.js';
+import ChefView from '../ChefView/ChefView.js';
+import Breakfast from '../Breakfast/Breakfast.js';
+import Lunch from '../Lunch/Lunch.js';
+import AdminView from '../AdminView/AdminView.js';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Burger Queen
-          </a>
-        </header>
+        <BrowserRouter>
+        <div>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/WaitressView" exact component={WaitressView}/>
+          <Route path="/WaitressView/Breakfast" exact component={Breakfast}/>
+          <Route path="/WaitressView/Lunch" exact component={Lunch}/>
+          <Route path="/ChefView" exact component={ChefView}/>
+          <Route path="/AdminView" exact component={AdminView}/>
+          </Switch>
+        </div>
+        </BrowserRouter>
       </div>
     );
   }
