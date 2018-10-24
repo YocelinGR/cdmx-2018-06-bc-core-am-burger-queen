@@ -1,0 +1,55 @@
+.LogInStyle h1 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: rgb(35, 144, 190); 
+    font-size: 4.5rem;
+    margin-bottom: 0;
+    margin-top: 5px;
+    margin-left: 3%;
+}
+.LogInStyle h2 {
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    color: rgb(245, 202, 48);
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-left: 3%;
+}
+.LogInStyle p {
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    color: #9B7348;
+    font-size: 1.3rem;
+    margin-left: 3%;
+}
+.LogInStyle img {
+    padding-left: 35%;
+    width: 38rem;
+}
+body {
+    background-color: ;
+    background-position: center center;
+    background: radial-gradient(ellipse, #EDF5F9, #7DCFF1);
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.input-field>label {
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+    color: rgb(124, 91, 57);
+    font-size: 1rem;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.form-format {
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.go-btn {
+    background-color:rgb(35, 144, 190); 
+    width: 100%;
+}
