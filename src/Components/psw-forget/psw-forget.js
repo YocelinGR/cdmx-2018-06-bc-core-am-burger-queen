@@ -1,9 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import { auth } from '../../firebase';
+import * as routes from '../../constants/routes';
 import './psw-forget.css';
 
+const PasswordForgetPage = () =>
+  <div>
+    <PasswordForgetForm />
+  </div>
 
-const PswPassword = () => {
-	return (
+const updateByPropertyName = (propertyName, value) => () => ({
+  [propertyName]: value,
+});
+
+const INITIAL_STATE = {
+  email: '',
+  error: null,
+};
+
+class PasswordForgetForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { ...INITIAL_STATE };
+  }
+
+  onSubmit = (event) => {
+    const { email } = this.state;
+
+    auth.doPasswordReset(email)
+      .then(() => {
+        this.setState(() => ({ ...INITIAL_STATE }));
+      })
+      .catch(error => {
+        this.setState(updateByPropertyName('error', error));
+      });
+
+    event.preventDefault();
+  }
+
+  render() {
+    const {
+      email,
+      error,
+    } = this.state;
+
+    const isInvalid = email === '';
+
+    return (
 		<div className= "LogInStyle">
 			<div className="row">
 				<h1>Burguer</h1>
@@ -13,16 +58,18 @@ const PswPassword = () => {
 			</div>
 			<section className = "form-format">
 				<div className="row">
-					<form className="col s12">
+					<form className="col s12 onSubmit={this.onSubmit}">
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<input id="email" type="email" className="validate input-form"></input>
+								<input value={this.state.email}
+          							onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
+								id="email" type="email" className="validate input-form"></input>
 								<label htmlFor="email">Email</label>
 							</div>
 						</div>
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<a class="waves-effect waves-light btn go-btn">Recuperar</a>
+								<a disabled={isInvalid} type="submit" class="waves-effect waves-light btn go-btn">Recuperar</a>
 							</div>
 						</div>
                         
@@ -30,7 +77,18 @@ const PswPassword = () => {
 				</div>
 			</section>
 		</div>
-	);
-};
+    );
+  }
+}
 
-export default PswPassword;
+const PasswordForgetLink = () =>
+  <p>
+    <Link to={routes.PASSWORD_FORGET}>Forgot Password?</Link>
+  </p>
+
+export default PasswordForgetPage;
+
+export {
+  PasswordForgetForm,
+  PasswordForgetLink,
+};

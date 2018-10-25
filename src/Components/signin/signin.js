@@ -1,43 +1,107 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
+import { SignUpLink } from '../SignUp';
+import { PasswordForgetLink } from '../PasswordForget';
+import { auth } from '../../firebase';
+import * as routes from '../../constants/routes';
 import './signin.css';
 
+const SignInPage = ({ history }) =>
+  <div>
+    <h1>SignIn</h1>
+    <SignInForm history={history} />
+    <PasswordForgetLink />
+    <SignUpLink />
+  </div>
 
-const Signin = () => {
-	return (
-		<div className= "LogInStyle">
-			<div className="row">
-				<h1>Burguer</h1>
-				<h2><strong>Queen</strong></h2>
-				<p>Para los amantes de lo bueno</p>
-				<img alt ="An hamburguer for the main view" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/hamb-burgue-circle.png?raw=true" />
-			</div>
-			<section className = "form-format">
+const updateByPropertyName = (propertyName, value) => () => ({
+  [propertyName]: value,
+});
+
+const INITIAL_STATE = {
+  email: '',
+  password: '',
+  error: null,
+};
+
+class SignInForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { ...INITIAL_STATE };
+  }
+
+  onSubmit = (event) => {
+    const {
+      email,
+      password,
+    } = this.state;
+
+    const {
+      history,
+    } = this.props;
+
+    auth.doSignInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.setState(() => ({ ...INITIAL_STATE }));
+        history.push(routes.HOME);
+      })
+      .catch(error => {
+        this.setState(updateByPropertyName('error', error));
+      });
+
+    event.preventDefault();
+  }
+
+  render() {
+    const {
+      email,
+      password,
+      error,
+    } = this.state;
+
+    const isInvalid =
+      password === '' ||
+      email === '';
+
+    return (
+	<div className= "LogInStyle">
+	  <section className = "form-format" onSubmit={this.onSubmit}>
 				<div className="row">
 					<form className="col s12">
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<input id="email" type="email" className="validate input-form"></input>
+								<input value={email}
+          						onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
+								id="email" type="email" className="validate input-form"></input>
 								<label htmlFor="email">Email</label>
 							</div>
 						</div>
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<input id="password" type="password" className="validate input-form"></input>
+								<input value={password}
+								onChange={event => this.setState(updateByPropertyName('password', event.target.value))}
+								id="password" type="password" className="validate input-form"></input>
 								<label htmlFor="password">Password</label>
 							</div>
 						</div>
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<a class="waves-effect waves-light btn go-btn">Iniciar</a>
-                                <span>Si no te has registrado, ve aquí: </span><a className="link">SignUp</a>
+								<a disabled={isInvalid} type="submit" class="waves-effect waves-light btn go-btn">Iniciar</a>
 							</div>
 						</div>
-                        
+                        { error && <p>{error.message}</p> }
 					</form>
 				</div>
 			</section>
-		</div>
-	);
-};
+	  </div>
+    );
+  }
+}
 
-export default Signin;
+export default withRouter(SignInPage);
+
+export {
+  SignInForm,
+};

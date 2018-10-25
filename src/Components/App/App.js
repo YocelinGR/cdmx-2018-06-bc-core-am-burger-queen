@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
-
-import {
-  BrowserRouter, Switch, Route, 
-} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router,
+  Route, } from 'react-router-dom';
 
 import './App.css';
 
-import Home from '../Home/Home.js';
+import Navigation from '../Navigation/Navigation';
+import Signin from '../signin/signin';
+import Signup from '../signup/signup';
+import Home from '../Home/Home';
+import PswPassword from '../psw-forget/psw-forget';
+import Breakfast from '../Breakfast/Breakfast';
+import Lunch from '../Lunch/Lunch';
+import ChefView from '../ChefView/ChefView';
+import AdminView from '../AdminView/AdminView';
+
+import * as routes from '../../constants/routes';
+
+
+/*import Home from '../Home/Home.js';
 import WaitressView from '../WaitressView/WaitressView.js';
 import ChefView from '../ChefView/ChefView.js';
 import Breakfast from '../Breakfast/Breakfast.js';
@@ -32,6 +43,12 @@ class App extends Component {
       </div>
     );
   }
-}
+}*/ 
+
+const App = () => 
+  <Router>
+    <Navigation />
+  </Router>
+
 
 export default App;

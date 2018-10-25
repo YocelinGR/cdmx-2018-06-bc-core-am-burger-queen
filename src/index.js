@@ -8,5 +8,5 @@ import Signup from './Components/signup/signup';
 import PswPassword from './Components/psw-forget/psw-forget';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Signin />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
