@@ -6,3 +6,4 @@ export const  LUNCH = '/lunch';
 export const  CHEF = '/chef';
 export const  ADMIN = '/admin';
 export const PASSWORD_FORGET = '/pw-forget';
+export const ACCOUNT = '/account';

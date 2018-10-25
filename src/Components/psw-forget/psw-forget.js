@@ -72,7 +72,7 @@ class PasswordForgetForm extends Component {
 								<a disabled={isInvalid} type="submit" class="waves-effect waves-light btn go-btn">Recuperar</a>
 							</div>
 						</div>
-                        
+            { error && <p>{error.message}</p> }          
 					</form>
 				</div>
 			</section>

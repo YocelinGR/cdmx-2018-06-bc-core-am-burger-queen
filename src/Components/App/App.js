@@ -1,21 +1,42 @@
 import React from 'react';
 import { BrowserRouter as Router,
-  Route, } from 'react-router-dom';
+	Route, } from 'react-router-dom';
 
 import './App.css';
 
 import Navigation from '../Navigation/Navigation';
-import Signin from '../signin/signin';
-import Signup from '../signup/signup';
+import SignInPage from '../signin/signin';
+import SignUpPage from '../signup/signup';
 import Home from '../Home/Home';
 import PswPassword from '../psw-forget/psw-forget';
 import Breakfast from '../Breakfast/Breakfast';
 import Lunch from '../Lunch/Lunch';
 import ChefView from '../ChefView/ChefView';
 import AdminView from '../AdminView/AdminView';
+import AccountPage from '../Account/Account';
+import withAuthentication from '../Session/withAuthentication';
+import * as routes from '../../constants/routes'; 
+const App = () =>
+	<Router>
+		<div className="app">
+			<Navigation />
 
-import * as routes from '../../constants/routes';
+			<hr/>
 
+			<Route exact path={routes.BREAKFAST} component={() => <Breakfast />} />
+      <Route exact path={routes.LUNCH} component={() => <Lunch />} />
+      <Route exact path={routes.CHEF} component={() => <ChefView />} />
+      <Route exact path={routes.ADMIN} component={() => <AdminView />} />
+			<Route exact path={routes.SIGN_UP} component={() => <SignUpPage />} />
+			<Route exact path={routes.SIGN_IN} component={() => <SignInPage />} />
+			<Route exact path={routes.PASSWORD_FORGET} component={() => <PswPassword />} />
+			<Route exact path={routes.HOME} component={() => <Home />} />
+			<Route exact path={routes.ACCOUNT} component={() => <AccountPage />} />
+
+			<hr/>
+		</div>
+	</Router>;
+export default withAuthentication(App);
 
 /*import Home from '../Home/Home.js';
 import WaitressView from '../WaitressView/WaitressView.js';
@@ -43,12 +64,4 @@ class App extends Component {
       </div>
     );
   }
-}*/ 
-
-const App = () => 
-  <Router>
-    <Navigation />
-  </Router>
-
-
-export default App;
+}*/

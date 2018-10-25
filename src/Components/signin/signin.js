@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { SignUpLink } from '../SignUp';
-import { PasswordForgetLink } from '../PasswordForget';
+import { SignUpLink } from '../signup/signup';
+import { PasswordForgetLink } from '../psw-forget/psw-forget';
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
 import './signin.css';
 
 const SignInPage = ({ history }) =>
   <div>
-    <h1>SignIn</h1>
     <SignInForm history={history} />
     <PasswordForgetLink />
     <SignUpLink />
@@ -88,7 +87,7 @@ class SignInForm extends Component {
 						</div>
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<a disabled={isInvalid} type="submit" class="waves-effect waves-light btn go-btn">Iniciar</a>
+								<a disabled={isInvalid} type="submit" className="waves-effect waves-light btn go-btn">Iniciar</a>
 							</div>
 						</div>
                         { error && <p>{error.message}</p> }

@@ -2,12 +2,57 @@ import React, { Component } from 'react';
 
 import { Config } from '../../config'; // eslint-disable-next-line
 import './Home.css'
+import withAuthorization from '../Session/withAuthorization';
+import { db } from '../../firebase';
+
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import NavBar from '../NavBar/NavBar';
 import FoodBar from '../FoodBar/FoodBar';
 
-class Home extends Component{
+class HomePage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      users: {}
+    };
+  }
+
+  componentDidMount() {
+    db.onceGetUsers().then(snapshot =>
+      this.setState(() => ({ users: snapshot.val() }))
+    );
+  }
+
+  render() {
+    const { users } = this.state;
+
+    return (
+      <div>
+        <p>Acceso restringido para usuarios</p>
+
+        { !!users && <UserList users={users} /> }
+      </div>
+    );
+  }
+}
+
+const UserList = ({ users }) =>
+  <div>
+    <h2>List of Usernames of Users</h2>
+    <p>(Saved on Sign Up in Firebase Database)</p>
+
+    {Object.keys(users).map(key =>
+      <div key={key}>{users[key].username}</div>
+    )}
+  </div>
+
+const authCondition = (authUser) => !!authUser;
+
+export default withAuthorization(authCondition)(HomePage);
+
+/*class Home extends Component{
   state = { isSignedIn: false}
   uiConfig = {
     signInFlow: "redirect",
@@ -58,3 +103,4 @@ class Home extends Component{
   }
 }
 export default Home;
+*/
