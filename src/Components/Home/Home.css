@@ -9,7 +9,7 @@
 .LogInStyle h2 {
     font-family: 'Poiret One', cursive;
     text-align: center;
-    color: rgb(245, 202, 48);
+    color: rgb(47, 111, 122);
     font-size: 3rem;
     font-weight: bold;
     margin-top: 0;
@@ -61,4 +61,6 @@ body {
     font-size: 0.7rem;
     background: rgba(0, 0, 0, 0.5);
 }
-
+.firebaseui-idp-password, .firebaseui-idp-password:hover, .mdl-button.firebaseui-idp-password:active, .mdl-button.firebaseui-idp-password:focus {
+    background-color: rgb(114, 71, 25);
+}
