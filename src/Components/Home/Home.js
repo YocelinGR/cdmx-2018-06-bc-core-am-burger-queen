@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import { Config } from '../../config'; // eslint-disable-next-line
+// import { Config } from '../../config'; // eslint-disable-next-line
 import './Home.css'
 import withAuthorization from '../Session/withAuthorization';
 import { db } from '../../firebase';
 
-import firebase from 'firebase';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import NavBar from '../NavBar/NavBar';
-import FoodBar from '../FoodBar/FoodBar';
+//import firebase from 'firebase';
+//import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+//import NavBar from '../NavBar/NavBar';
+//import FoodBar from '../FoodBar/FoodBar';
 
 class HomePage extends Component {
   constructor(props) {

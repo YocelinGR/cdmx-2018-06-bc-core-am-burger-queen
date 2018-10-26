@@ -5,10 +5,10 @@ import { BrowserRouter as Router,
 import './App.css';
 
 import Navigation from '../Navigation/Navigation';
-import SignInPage from '../signin/signin';
-import SignUpPage from '../signup/signup';
-import Home from '../Home/Home';
-import PswPassword from '../psw-forget/psw-forget';
+import SignInPage from '../SignIn/SignIn';
+import SignUpPage from '../SignUp/SignUp';
+import HomePage from '../Home/Home';
+import PasswordForgetPage  from '../PasswordForget/PasswordForget';
 import Breakfast from '../Breakfast/Breakfast';
 import Lunch from '../Lunch/Lunch';
 import ChefView from '../ChefView/ChefView';
@@ -29,8 +29,8 @@ const App = () =>
       <Route exact path={routes.ADMIN} component={() => <AdminView />} />
 			<Route exact path={routes.SIGN_UP} component={() => <SignUpPage />} />
 			<Route exact path={routes.SIGN_IN} component={() => <SignInPage />} />
-			<Route exact path={routes.PASSWORD_FORGET} component={() => <PswPassword />} />
-			<Route exact path={routes.HOME} component={() => <Home />} />
+			<Route exact path={routes.PASSWORD_FORGET} component={() => <PasswordForgetPage  />} />
+			<Route exact path={routes.HOME} component={() => <HomePage />} />
 			<Route exact path={routes.ACCOUNT} component={() => <AccountPage />} />
 
 			<hr/>

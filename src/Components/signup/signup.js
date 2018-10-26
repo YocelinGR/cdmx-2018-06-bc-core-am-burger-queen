@@ -99,7 +99,7 @@ class SignUpForm extends Component {
 						</div>
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<a type = 'submit' disabled = {isInvalid} className="waves-effect waves-light btn go-btn">Iniciar</a>
+								<button type = 'submit' disabled = {isInvalid} className="waves-effect waves-light btn go-btn">Iniciar</button>
 							</div>
 						</div>
 					</section>

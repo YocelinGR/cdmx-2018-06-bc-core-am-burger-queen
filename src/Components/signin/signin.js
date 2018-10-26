@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { SignUpLink } from '../signup/signup';
-import { PasswordForgetLink } from '../psw-forget/psw-forget';
+import { SignUpLink } from '../SignUp/SignUp';
+import { PasswordForgetLink } from '../PasswordForget/PasswordForget';
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
-import './signin.css';
+import './SignIn.css';
 
 const SignInPage = ({ history }) =>
   <div>
@@ -73,7 +73,7 @@ class SignInForm extends Component {
 							<div className="input-field col s6 offset-s3">
 								<input value={email}
           						onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
-								id="email" type="email" className="validate input-form"></input>
+								id="email" type="text" className="validate input-form"></input>
 								<label htmlFor="email">Email</label>
 							</div>
 						</div>
@@ -87,7 +87,7 @@ class SignInForm extends Component {
 						</div>
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<a disabled={isInvalid} type="submit" className="waves-effect waves-light btn go-btn">Iniciar</a>
+								<button disabled={isInvalid} type="submit" className="waves-effect waves-light btn go-btn">Iniciar</button>
 							</div>
 						</div>
                         { error && <p>{error.message}</p> }

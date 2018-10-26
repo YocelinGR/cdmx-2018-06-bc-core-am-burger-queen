@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
-import './psw-forget.css';
+import './PasswordForget.css';
 
 const PasswordForgetPage = () =>
   <div>
@@ -63,13 +63,13 @@ class PasswordForgetForm extends Component {
 							<div className="input-field col s6 offset-s3">
 								<input value={this.state.email}
           							onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
-								id="email" type="email" className="validate input-form"></input>
+								id="email" type="text" className="validate input-form"></input>
 								<label htmlFor="email">Email</label>
 							</div>
 						</div>
 						<div className="row">
 							<div className="input-field col s6 offset-s3">
-								<a disabled={isInvalid} type="submit" class="waves-effect waves-light btn go-btn">Recuperar</a>
+								<button disabled={isInvalid} type="submit" className="waves-effect waves-light btn go-btn">Recuperar</button>
 							</div>
 						</div>
             { error && <p>{error.message}</p> }          
