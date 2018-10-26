@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { BrowserRouter as Router,
 	Route, } from 'react-router-dom';
 
@@ -36,9 +36,17 @@ const App = () =>
 			<hr/>
 		</div>
 	</Router>;
-export default withAuthentication(App);
+export default withAuthentication(App);*/
 
-/*import Home from '../Home/Home.js';
+import React, { Component } from 'react';
+
+import {
+  BrowserRouter, Switch, Route, 
+} from 'react-router-dom';
+
+import './App.css';
+
+import Home from '../Home/Home.js';
 import WaitressView from '../WaitressView/WaitressView.js';
 import ChefView from '../ChefView/ChefView.js';
 import Breakfast from '../Breakfast/Breakfast.js';
@@ -64,4 +72,6 @@ class App extends Component {
       </div>
     );
   }
-}*/
+}
+
+export default App;

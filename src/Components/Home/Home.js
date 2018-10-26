@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 
 // import { Config } from '../../config'; // eslint-disable-next-line
 import './Home.css'
@@ -16,7 +16,7 @@ class HomePage extends Component {
 
     this.state = {
       users: {}
-    };
+    };/*
   }
 
   componentDidMount() {
@@ -50,9 +50,18 @@ const UserList = ({ users }) =>
 
 const authCondition = (authUser) => !!authUser;
 
-export default withAuthorization(authCondition)(HomePage);
+export default withAuthorization(authCondition)(HomePage);*/
 
-/*class Home extends Component{
+import React, { Component } from 'react';
+
+import { Config } from '../../config'; // eslint-disable-next-line
+import './Home.css'
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import NavBar from '../NavBar/NavBar';
+import FoodBar from '../FoodBar/FoodBar';
+
+class Home extends Component{
   state = { isSignedIn: false}
   uiConfig = {
     signInFlow: "redirect",
@@ -75,7 +84,7 @@ export default withAuthorization(authCondition)(HomePage);
   render() {
     return(
       <div className= "LogInStyle">
-        <NavBar />
+        
         
         {this.state.isSignedIn ? (
         <div>
@@ -103,4 +112,3 @@ export default withAuthorization(authCondition)(HomePage);
   }
 }
 export default Home;
-*/
