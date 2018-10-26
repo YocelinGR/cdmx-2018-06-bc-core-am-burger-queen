@@ -60,6 +60,7 @@ import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import NavBar from '../NavBar/NavBar';
 import FoodBar from '../FoodBar/FoodBar';
+import GetYourOrder from '../GetYourOrder/GetYourOrder';
 
 class Home extends Component{
   state = { isSignedIn: false}
@@ -96,6 +97,9 @@ class Home extends Component{
             (<img className = "photo-user" alt = "foto de usuario" src= {firebase.auth().currentUser.photoURL} />)}
             <button className = "btn btn-floating lighten-1 btn-user" onClick={() => firebase.auth().signOut()}>Salir</button>
             <FoodBar/>
+          </div>
+          <div>
+            <GetYourOrder />
           </div>
         </div>
         ) : (

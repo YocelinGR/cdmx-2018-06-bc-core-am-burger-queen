@@ -6,8 +6,8 @@ import './FoodBar.css';
 const FoodBar = () => {
     return (
     <div>
-        <a class="waves-effect waves-light btn">Desayuno</a>
-        <a class="waves-effect waves-light btn">Comida</a>
+        <a className="waves-effect waves-light btn">Desayuno</a>
+        <a className="waves-effect waves-light btn">Comida</a>
     </div>
     );
 }
