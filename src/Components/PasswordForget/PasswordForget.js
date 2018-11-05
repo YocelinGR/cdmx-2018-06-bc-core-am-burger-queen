@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import { auth } from '../../firebase';
-import * as routes from '../../constants/routes';
 import './PasswordForget.css';
+import * as routes from '../../constants/routes';
 
-const PasswordForgetPage = () =>
-  <div>
-    <PasswordForgetForm />
-  </div>
+const PasswordForgetView = () => 
+  <div className="row">
+				<h1>Burguer</h1>
+				<h2><strong>Queen</strong></h2>
+				<p>Para los amantes de lo bueno</p>
+				<img alt ="An hamburguer for the main view" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/hamb-burgue-circle.png?raw=true" />
+        <PasswordForgetForm />
+	</div>
 
-const updateByPropertyName = (propertyName, value) => () => ({
+const updateByPropertyName =(propertyName, value) => () =>({
   [propertyName]: value,
 });
 
@@ -27,17 +30,17 @@ class PasswordForgetForm extends Component {
   }
 
   onSubmit = (event) => {
+    event.preventDefault();
+
     const { email } = this.state;
 
-    auth.doPasswordReset(email)
+    auth.sendPasswordResetEmail(email)
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
       })
       .catch(error => {
         this.setState(updateByPropertyName('error', error));
       });
-
-    event.preventDefault();
   }
 
   render() {
@@ -50,12 +53,6 @@ class PasswordForgetForm extends Component {
 
     return (
 		<div className= "LogInStyle">
-			<div className="row">
-				<h1>Burguer</h1>
-				<h2><strong>Queen</strong></h2>
-				<p>Para los amantes de lo bueno</p>
-				<img alt ="An hamburguer for the main view" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/hamb-burgue-circle.png?raw=true" />
-			</div>
 			<section className = "form-format">
 				<div className="row">
 					<form className="col s12 onSubmit={this.onSubmit}">
@@ -63,7 +60,7 @@ class PasswordForgetForm extends Component {
 							<div className="input-field col s6 offset-s3">
 								<input value={this.state.email}
           							onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
-								id="email" type="text" className="validate input-form"></input>
+								id="email" type="email" className="validate input-form"></input>
 								<label htmlFor="email">Email</label>
 							</div>
 						</div>
@@ -80,15 +77,14 @@ class PasswordForgetForm extends Component {
     );
   }
 }
-
 const PasswordForgetLink = () =>
-  <p>
-    <Link to={routes.PASSWORD_FORGET}>Forgot Password?</Link>
+  <p>Olvidaste tu contraseña
+    <Link to = {routes.PASSWORD_FORGET}>Da click aquí</Link>
   </p>
 
-export default PasswordForgetPage;
+export default PasswordForgetView;
 
 export {
   PasswordForgetForm,
   PasswordForgetLink,
-};
+}

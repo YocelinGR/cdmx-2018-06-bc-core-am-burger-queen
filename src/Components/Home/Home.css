@@ -3,14 +3,14 @@
     font-family: 'Dancing Script', cursive;
     text-align: center;
     color: rgb(35, 144, 190); 
-    font-size: 5rem;
+    font-size: 3rem;
     margin-bottom: 0;
 }
 .LogInStyle h2 {
     font-family: 'Poiret One', cursive;
     text-align: center;
     color: rgb(47, 111, 122);
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-top: 0;
 }
@@ -18,10 +18,11 @@
     font-family: 'Poiret One', cursive;
     text-align: center;
     color: #9B7348;
-    font-size: 1.8rem;
+    font-size: 1rem;
 }
 .LogInStyle img {
     margin: auto;
+    width: 160px;
 }
 body {
     background-color: ;
@@ -48,10 +49,11 @@ body {
     margin-top: 0;
 }
 .photo-user {
-    width: 4.3rem;
+    width: 80px !important;
     position: fixed;
     top: 0.3em;
     right: 0.3em;
+    margin-bottom: 20px;
 }
 .btn-user {
     width: 2.5rem;

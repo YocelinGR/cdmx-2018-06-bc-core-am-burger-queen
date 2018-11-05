@@ -38,8 +38,7 @@ const App = () =>
 	</Router>;
 export default withAuthentication(App);*/
 
-import React, { Component } from 'react';
-
+import React, {Fragment} from 'react';
 import {
   BrowserRouter, Switch, Route, 
 } from 'react-router-dom';
@@ -52,26 +51,28 @@ import ChefView from '../ChefView/ChefView.js';
 import Breakfast from '../Breakfast/Breakfast.js';
 import Lunch from '../Lunch/Lunch.js';
 import AdminView from '../AdminView/AdminView.js';
+import PasswordForgetView from '../PasswordForget/PasswordForget.js'
+import * as routes from "../../constants/routes";
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <div className="App">
-        <BrowserRouter>
-        <div>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Fragment>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/WaitressView" exact component={WaitressView}/>
-          <Route path="/WaitressView/Breakfast" exact component={Breakfast}/>
-          <Route path="/WaitressView/Lunch" exact component={Lunch}/>
-          <Route path="/ChefView" exact component={ChefView}/>
-          <Route path="/AdminView" exact component={AdminView}/>
+          <Route path={routes.HOME} exact component={Home} />
+          <Route path={routes.WAITRESS_VIEW} exact component={WaitressView}/>
+          <Route path={routes.BREAKFAST} exact component={Breakfast}/>
+          <Route path={routes.LUNCH} exact component={Lunch}/>
+          <Route path={routes.CHEF} exact component={ChefView}/>
+          <Route path={routes.ADMIN} exact component={AdminView}/>
+          <Route path={routes.PASSWORD_FORGET} exact component={PasswordForgetView}/>
           </Switch>
-        </div>
+        </Fragment>
         </BrowserRouter>
       </div>
     );
   }
-}
+
 
 export default App;

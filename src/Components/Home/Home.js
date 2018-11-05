@@ -61,20 +61,23 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import NavBar from '../NavBar/NavBar';
 import FoodBar from '../FoodBar/FoodBar';
 import GetYourOrder from '../GetYourOrder/GetYourOrder';
+import { Link } from 'react-router-dom';
+import { auth } from '../../firebase';
+import { PasswordForgetLink } from '../PasswordForget/PasswordForget';
 
 class Home extends Component{
   state = { isSignedIn: false}
   uiConfig = {
     signInFlow: "redirect",
     signInOptions: [
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     callbacks: {
       sigInSuccess: () => false
     }
   }
-
+  
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ isSignedIn: !!user})
@@ -109,6 +112,7 @@ class Home extends Component{
           <p>Para los amantes de lo bueno</p>
           <img alt ="An hamburguer for the main view" src="https://github.com/YocelinGR/cdmx-2018-06-bc-core-am-burger-queen/blob/master/assets/hamb-burgue-circle.png?raw=true" />
             <StyledFirebaseAuth uiConfig= {this.uiConfig} firebaseAuth = {firebase.auth()} />
+          <PasswordForgetLink />
         </div>
         )}
       </div>
